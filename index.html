@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purple Background with Image</title>
+    <title>AOG Conference 2024 Sydney</title>
     <style>
         @font-face {
             font-family: 'Made Outer Sans';
@@ -73,44 +73,43 @@
         <h1>COMING SOON!</h1>
         <h2>Registration will start in</h2>
     </div>
-    <div class="rounded-rectangle">
+    <div class="rounded-rectangle" id="countdownContainer">
         <div id="countdown"></div>
-
-            <script>
-                // Set the date we're counting down to
-                var countDownDate = new Date("Jan 27, 2024 08:00:00").getTime();
-
-                // Update the countdown every 1 second
-                var countdownInterval = setInterval(function() {
-                    // Get the current date and time
-                    var now = new Date().getTime();
-
-                    // Calculate the remaining time
-                    var distance = countDownDate - now;
-
-                    // Calculate days, hours, minutes, and seconds
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    // Display the countdown in the "countdown" div
-                    document.getElementById("countdown").innerHTML = days + "d : " + hours + "h : "
-                    + minutes + "m : " + seconds + "s ";
-
-                    // If the countdown is over, display a message
-                    if (distance < 0) {
-                        clearInterval(countdownInterval);
-                        document.getElementById("countdown").innerHTML = "EXPIRED";
-                    }
-                }, 1000);
-            </script>
-            </div>
-    <div>
-
     </div>
+    <script>
+        // Set the date we're counting down to (8 AM on January 27, 2024)
+        var countDownDate = new Date("Jan 27, 2024 08:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var countdownInterval = setInterval(function() {
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Calculate the remaining time
+            var distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown in the "countdown" div
+            document.getElementById("countdown").innerHTML = days + "d : " + hours + "h : "
+                + minutes + "m : " + seconds + "s ";
+
+            // If the countdown is over, make the container clickable
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "<a href='https://forms.gle/YX5QmXx6vt1s39z97' target='_blank'>Register Here</a>";
+                document.getElementById("countdownContainer").style.cursor = "pointer";
+            }
+        }, 1000);
+    </script>
+    </a>
+
     <div class="footer">
-        <p>@rosc<strong>sydney</strong></p>
+        <h2>@rosc<strong>sydney</strong></h2>
     </div>
 </body>
 </html>
